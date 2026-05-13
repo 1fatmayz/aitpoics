@@ -1,0 +1,45 @@
+{
+    "track": "A - Supervised auto-tuned kNN retriever",
+    "dataset": "109 AI-related PDFs",
+    "num_questions": 150,
+    "num_chunks": 471,
+    "extraction_mode": "title + abstract only",
+    "automl_tool": "Optuna",
+    "baseline_recall_at_5": 0.9667,
+    "baseline_ndcg_at_5": 0.9294,
+    "baseline_p95_latency_seconds": 0.001528,
+    "final_recall_at_5": 0.9667,
+    "final_ndcg_at_5": 0.9527,
+    "final_p95_latency_seconds": 0.008883,
+    "best_params": {
+        "k": 20,
+        "metric": "euclidean",
+        "svd_dim": 100,
+        "normalize": true,
+        "max_features": 10000,
+        "hybrid_weight": 0.6241144063085704
+    },
+    "best_objective_score": 0.9593,
+    "online_learning": {
+        "tool": "River",
+        "model": "StandardScaler + LogisticRegression",
+        "task": "Adaptive hybrid fusion weight from feedback",
+        "initial_hybrid_weight": 0.6241,
+        "final_adaptive_hybrid_weight": 0.5241,
+        "prequential_initial_recall_at_5": 1.0,
+        "prequential_final_recall_at_5": 0.96,
+        "natural_stream_drift_events": [],
+        "natural_stream_drift_detected": false,
+        "stress_test_drift_events_zero_indexed": [
+            95
+        ],
+        "stress_test_drift_detected_plot_step": 96,
+        "stress_test_drift_detected": true
+    },
+    "plots": {
+        "prequential_recall_plot": "prequential_recall_at5_plot.png",
+        "adaptive_weight_plot": "adaptive_hybrid_weight_plot.png",
+        "adwin_error_plot": "adwin_actual_query_stream_drift_evidence.png",
+        "drift_stress_recall_plot": "prequential_recall_under_drift_stress_test.png"
+    }
+}
